@@ -24,3 +24,12 @@ exports.authorize = (roles) => {
         next();
     };
 };
+
+// Admin authorization middleware
+exports.authorizeAdmin = (req, res, next) => {
+    // Assumes you've already set req.user based on JWT
+    if (req.user && req.user.role === 'admin') {
+        return next();
+    }
+    return res.status(403).json({ error: 'Forbidden' });
+};
