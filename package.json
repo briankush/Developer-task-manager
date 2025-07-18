@@ -1,0 +1,9 @@
+{
+	"devDependencies": {
+		"concurrently": "^9.2.0"
+	},
+	"scripts": {
+		"start": "node server/server.js",
+		"dev": "concurrently \"nodemon server/server.js\" \"cd client && pnpm dev\""
+	}
+}
