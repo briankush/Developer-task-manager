@@ -1,5 +1,9 @@
 {
 	"devDependencies": {
 		"concurrently": "^9.2.0"
+	},
+	"scripts": {
+		"start": "node server/server.js",
+		"dev": "concurrently \"pnpm start\" \"cd client && pnpm dev\""
 	}
 }

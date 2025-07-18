@@ -18,7 +18,9 @@ export default function Login() {
     try {
       const res = await API.post("/auth/login", { email, password });
       localStorage.setItem("token", res.data.token);
-      navigate("/dashboard");
+      // redirect based on role
+      if (res.data.user.role === 'admin') navigate('/admin');
+      else navigate('/developer');
       if (!res.data?.token){
         alert("Login failed: Not Token");
         return;
